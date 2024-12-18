@@ -1,0 +1,23 @@
+apiVersion: "datadoghq.com/v2alpha1"
+kind: "DatadogAgent"
+metadata:
+  name: "datadog"
+spec:
+  global:
+    clusterName: ruyffelaert-eks-m5ttx0t3
+    credentials:
+      apiSecret:
+        secretName: "datadog-secret"
+        keyName: "api-key"
+  features:
+    apm:
+      instrumentation:
+        enabled: true
+        libVersions:
+          java: "1"
+          dotnet: "3"
+          python: "2"
+          js: "5"
+    logCollection:
+      enabled: true
+      containerCollectAll: true
